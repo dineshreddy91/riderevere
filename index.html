@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>REVERE AI — Making America Make Again</title>
-  <meta name="description" content="We're building the world's largest contact dataset for physical AI — by putting American-supervised robots to work in our businesses." />
+  <meta name="description" content="Revere is building foundation models for physical AGI by automating retail fulfillment — American-supervised robots, working real jobs in American stores." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -364,62 +364,59 @@
       line-height: 1.5;
     }
 
-    /* —— LABS —— */
-    .labs {
+    /* —— PROBLEM —— */
+    .problem {
       background: var(--cream);
       padding: clamp(3.5rem, 9vw, 6.5rem) var(--pad);
     }
-    .labs-inner {
+    .problem-inner {
       width: min(var(--max), 100%);
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: clamp(2rem, 5vw, 4rem);
-      align-items: start;
     }
-    .labs h2 {
+    .problem h2 {
       font-size: clamp(1.85rem, 4vw, 2.65rem);
       color: var(--navy);
       margin-bottom: 1.15rem;
+      max-width: 22ch;
     }
-    .labs-lead {
-      font-size: 1.1rem;
+    .problem-lead {
+      font-size: 1.15rem;
       color: var(--muted-ink);
-      margin-bottom: 1.75rem;
-      max-width: 32rem;
-      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      max-width: 40rem;
+      line-height: 1.65;
     }
-    .trust {
+    .pain {
       list-style: none;
-      margin: 0;
+      margin: 0 0 2.5rem;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1.35rem;
-    }
-    .trust li {
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 0.9rem;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.5rem, 4vw, 2.5rem);
     }
-    .trust-icon {
-      width: 1.5rem;
-      height: 1.5rem;
-      margin-top: 0.15rem;
-      color: var(--red);
+    .pain li {
+      padding-top: 1.15rem;
+      border-top: 2px solid var(--red);
     }
-    .trust strong {
+    .pain strong {
       display: block;
       font-family: var(--serif);
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: var(--navy);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.45rem;
     }
-    .trust span {
+    .pain span {
       font-size: 0.98rem;
       color: var(--muted-ink);
       line-height: 1.5;
+    }
+    .thesis {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+      color: var(--navy);
+      max-width: 40rem;
+      line-height: 1.5;
+      margin-bottom: 1.75rem;
     }
 
     /* —— FOOTER —— */
@@ -498,7 +495,7 @@
         gap: 2rem 1.25rem;
       }
       .steps::before { display: none; }
-      .labs-inner { grid-template-columns: 1fr; }
+      .pain { grid-template-columns: 1fr; }
       .step p { max-width: none; }
     }
     @media (max-width: 520px) {
@@ -548,15 +545,15 @@
             <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.8l2.6 6.4 6.9.6-5.2 4.5 1.6 6.7L12 16.6 6.1 20l1.6-6.7L2.5 8.8l6.9-.6L12 1.8z"/></svg>
           </span>
         </a>
-        <a class="nav-link" href="#labs">For foundation labs</a>
+        <a class="nav-link" href="#problem">The problem</a>
       </nav>
 
       <div class="hero-copy">
         <h1>Making America Make Again.</h1>
-        <p class="hero-sub">We're building the world's largest contact dataset for physical AI — by putting American-supervised robots to work in our businesses.</p>
+        <p class="hero-sub">We're building foundation models for physical AGI — by automating retail fulfillment with American-supervised robots in American stores.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="mailto:partner@riderevere.com?subject=Partnership%20inquiry">Partner with us</a>
-          <a class="btn btn-ghost" href="#labs">For foundation labs</a>
+          <a class="btn btn-ghost" href="#approach">How we get there</a>
         </div>
       </div>
     </div>
@@ -564,35 +561,27 @@
 
   <div class="stripe" aria-hidden="true"></div>
 
-  <section class="bridge" id="bridge" aria-labelledby="bridge-heading">
-    <div class="bridge-inner">
-      <p class="section-label">What we do</p>
-      <h2 id="bridge-heading">The bridge</h2>
-
-      <ol class="steps">
-        <li class="step">
-          <div class="step-num" aria-hidden="true">1</div>
-          <h3>Deploy on real jobs</h3>
-          <p>Robots supervised and operated by remote American employees.</p>
+  <section class="problem" id="problem" aria-labelledby="problem-heading">
+    <div class="problem-inner">
+      <p class="section-label">The problem</p>
+      <h2 id="problem-heading">Retail fulfillment is still human work</h2>
+      <p class="problem-lead">Stores are unstructured, occupied, and unforgiving. Stocking, picking, and restocking demand contact with the world — force, touch, judgment in crowded aisles — that today's robots cannot yet do alone. Labor is scarce. The work does not wait.</p>
+      <ul class="pain">
+        <li>
+          <strong>Unstructured aisles</strong>
+          <span>Every SKU, shelf, and shopper is different. There is no clean factory cell — only messy, living retail floors.</span>
         </li>
-        <li class="step">
-          <div class="step-num" aria-hidden="true">2</div>
-          <h3>Solve the business problem</h3>
-          <p>Commercial work first — value delivered before data is a product.</p>
+        <li>
+          <strong>Contact is the bottleneck</strong>
+          <span>Vision alone is not enough. Physical AGI needs force, tactile sense, and proprioception learned from real work.</span>
         </li>
-        <li class="step">
-          <div class="step-num" aria-hidden="true">3</div>
-          <h3>Capture contact data</h3>
-          <p>Force, tactile, proprioception, and social context labs need.</p>
+        <li>
+          <strong>Labor that will not scale</strong>
+          <span>Fulfillment demand grows; the workforce to meet it does not. Automation has to earn trust on the job, not in the lab.</span>
         </li>
-        <li class="step">
-          <div class="step-num" aria-hidden="true">4</div>
-          <h3>Automate fully</h3>
-          <p>Retire human supervision step by step as capability compounds.</p>
-        </li>
-      </ol>
-
-      <p class="bridge-line">We work the hardest environments — unstructured, occupied, unforgiving — because that's where the valuable data lives.</p>
+      </ul>
+      <p class="thesis">Our hypothesis: the path to physical AGI runs through automating retail fulfillment — training foundation models on the contact of real American work.</p>
+      <a class="btn btn-navy" href="mailto:partner@riderevere.com?subject=Partnership%20inquiry">Partner with us</a>
     </div>
   </section>
 
@@ -604,43 +593,41 @@
         “From this day forward, it'll be a policy of the United States to do whatever it takes to lead the world in artificial intelligence.”
       </blockquote>
       <cite>— President Donald J. Trump <span style="font-weight:400;opacity:.8">· July 23, 2025 White House AI Summit</span></cite>
-      <p class="quote-kicker">Physical AI is the next front. The lab that trains on real American work wins it.</p>
+      <p class="quote-kicker">Physical AI is the next front. It will be won on American store floors.</p>
     </div>
   </aside>
 
   <div class="stripe" aria-hidden="true"></div>
 
-  <section class="labs" id="labs" aria-labelledby="labs-heading">
-    <div class="labs-inner">
-      <div>
-        <p class="section-label">For foundation labs</p>
-        <h2 id="labs-heading">The American contact dataset</h2>
-        <p class="labs-lead">Force, tactile, proprioception + social context — collected under paid commercial contracts in American businesses.</p>
-        <a class="btn btn-navy" href="mailto:data@riderevere.com?subject=Data%20partnership%20inquiry">Talk data partnerships</a>
-      </div>
-      <ul class="trust">
-        <li>
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 3v6c0 5.2-3.4 9.8-8 11-4.6-1.2-8-5.8-8-11V5l8-3z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 12l2.5 2.5L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div>
-            <strong>Zero China exposure</strong>
-            <span>No foreign data pools, no export-control entanglement, clean chain of custody.</span>
-          </div>
+  <section class="bridge" id="approach" aria-labelledby="approach-heading">
+    <div class="bridge-inner">
+      <p class="section-label">How we get there</p>
+      <h2 id="approach-heading">Work first. Autonomy next.</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>Deploy on real jobs</h3>
+          <p>Robots in stores, supervised and operated by remote American employees.</p>
         </li>
-        <li>
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9S14.5 18.2 12 21c-2.5-2.8-3.8-5.8-3.8-9S9.5 5.8 12 3z" stroke="currentColor" stroke-width="1.6"/></svg>
-          <div>
-            <strong>Collected in American environments</strong>
-            <span>Real stores, real customers, U.S. jurisdiction end to end.</span>
-          </div>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>Solve fulfillment</h3>
+          <p>Deliver the business outcome — stocking, picking, restocking — before models are ready to fly solo.</p>
         </li>
-        <li>
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <div>
-            <strong>Licensed, not scraped</strong>
-            <span>Every hour gathered under contract with the business being served.</span>
-          </div>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Train on contact</h3>
+          <p>Every hour of work becomes force, tactile, proprioception, and social context for our foundation models.</p>
         </li>
-      </ul>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">4</div>
+          <h3>Retire supervision</h3>
+          <p>Step by step, capability compounds until human oversight can step back.</p>
+        </li>
+      </ol>
+
+      <p class="bridge-line">We work the hardest environments — unstructured, occupied, unforgiving — because that's where physical AGI has to learn.</p>
     </div>
   </section>
 
