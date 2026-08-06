@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>REVERE AI — Making America Make Again</title>
+  <meta name="description" content="We're building the world's largest contact dataset for physical AI — by putting American-supervised robots to work in our businesses." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0A3161;
+      --navy-deep: #061f3f;
+      --red: #B31942;
+      --red-deep: #8e1435;
+      --cream: #F8F6F1;
+      --white: #ffffff;
+      --ink: #0d1b2a;
+      --muted: rgba(255, 255, 255, 0.72);
+      --muted-ink: rgba(10, 49, 97, 0.72);
+      --serif: "Libre Baskerville", "Times New Roman", Georgia, serif;
+      --sans: "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --max: 1120px;
+      --pad: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 {
+      font-family: var(--serif);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    p { margin: 0; }
+
+    /* Stripe rule */
+    .stripe {
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        var(--red) 0%,
+        var(--red) 33.33%,
+        var(--white) 33.33%,
+        var(--white) 66.66%,
+        var(--navy) 66.66%,
+        var(--navy) 100%
+      );
+      background-size: 120px 100%;
+      animation: stripe-drift 18s linear infinite;
+    }
+    @keyframes stripe-drift {
+      from { background-position: 0 0; }
+      to { background-position: 120px 0; }
+    }
+
+    /* Wordmark */
+    .wordmark {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-variant: small-caps;
+      position: relative;
+      display: inline-block;
+      padding-right: 0.15em;
+    }
+    .wordmark .star {
+      position: absolute;
+      top: -0.35em;
+      left: 2.55em;
+      width: 0.55em;
+      height: 0.55em;
+      color: var(--red);
+      animation: star-pulse 3.2s ease-in-out infinite;
+    }
+    @keyframes star-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.75; transform: scale(1.08); }
+    }
+
+    /* Logo mark */
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      padding: 0.85rem 1.4rem;
+      border-radius: 2px;
+      border: 1.5px solid transparent;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      border-color: var(--red);
+    }
+    .btn-primary:hover { background: var(--red-deep); border-color: var(--red-deep); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+    .btn-ghost:hover {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .btn-navy:hover { background: var(--navy-deep); }
+
+    /* —— HERO —— */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      color: var(--white);
+      overflow: hidden;
+      background: var(--navy-deep);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(6, 31, 63, 0.92) 0%, rgba(6, 31, 63, 0.72) 42%, rgba(10, 49, 97, 0.45) 70%, rgba(10, 49, 97, 0.55) 100%),
+        url("hero-aisle.jpg") center / cover no-repeat;
+      transform: scale(1.04);
+      animation: hero-ken 28s ease-in-out infinite alternate;
+    }
+    @keyframes hero-ken {
+      from { transform: scale(1.04) translate3d(0, 0, 0); }
+      to { transform: scale(1.1) translate3d(-1.5%, -1%, 0); }
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      padding: var(--pad);
+      padding-top: clamp(1.25rem, 3vw, 1.75rem);
+      padding-bottom: clamp(3rem, 8vh, 5rem);
+    }
+    .hero-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: auto;
+      opacity: 0;
+      animation: rise 0.9s ease 0.1s forwards;
+    }
+    .hero-nav a.nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero-nav a.nav-link:hover {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .hero-copy {
+      max-width: 38rem;
+      margin-top: clamp(4rem, 14vh, 8rem);
+      opacity: 0;
+      animation: rise 1s ease 0.25s forwards;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6.2vw, 4.1rem);
+      color: var(--white);
+      margin-bottom: 1.15rem;
+      text-wrap: balance;
+    }
+    .hero-sub {
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* —— BRIDGE —— */
+    .bridge {
+      background: var(--cream);
+      padding: clamp(3.5rem, 9vw, 6.5rem) var(--pad);
+    }
+    .bridge-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.85rem;
+    }
+    .bridge h2 {
+      font-size: clamp(1.85rem, 4vw, 2.65rem);
+      color: var(--navy);
+      margin-bottom: 2.75rem;
+      max-width: 20ch;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      margin-bottom: 2.75rem;
+    }
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 1.35rem;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--red), var(--navy));
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .step {
+      position: relative;
+      z-index: 1;
+      padding: 0 1rem 0 0;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: rise 0.7s ease forwards;
+    }
+    .step:nth-child(1) { animation-delay: 0.05s; }
+    .step:nth-child(2) { animation-delay: 0.15s; }
+    .step:nth-child(3) { animation-delay: 0.25s; }
+    .step:nth-child(4) { animation-delay: 0.35s; }
+    .step-num {
+      width: 2.7rem;
+      height: 2.7rem;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      box-shadow: 0 0 0 6px var(--cream);
+    }
+    .step:nth-child(even) .step-num { background: var(--red); }
+    .step h3 {
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 0.55rem;
+      line-height: 1.3;
+    }
+    .step p {
+      font-size: 0.95rem;
+      color: var(--muted-ink);
+      line-height: 1.5;
+      max-width: 22ch;
+    }
+    .bridge-line {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      color: var(--navy);
+      max-width: 42rem;
+      line-height: 1.55;
+      border-left: 3px solid var(--red);
+      padding-left: 1.25rem;
+    }
+
+    /* —— QUOTE —— */
+    .quote-band {
+      background: var(--red);
+      color: var(--white);
+      padding: clamp(2.75rem, 7vw, 4.25rem) var(--pad);
+      text-align: center;
+    }
+    .quote-inner {
+      width: min(720px, 100%);
+      margin: 0 auto;
+    }
+    .quote-band blockquote {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2.8vw, 1.65rem);
+      font-style: italic;
+      line-height: 1.45;
+      text-wrap: balance;
+    }
+    .quote-band cite {
+      display: block;
+      margin-top: 1.25rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      opacity: 0.92;
+    }
+    .quote-kicker {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.28);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    /* —— LABS —— */
+    .labs {
+      background: var(--cream);
+      padding: clamp(3.5rem, 9vw, 6.5rem) var(--pad);
+    }
+    .labs-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+    .labs h2 {
+      font-size: clamp(1.85rem, 4vw, 2.65rem);
+      color: var(--navy);
+      margin-bottom: 1.15rem;
+    }
+    .labs-lead {
+      font-size: 1.1rem;
+      color: var(--muted-ink);
+      margin-bottom: 1.75rem;
+      max-width: 32rem;
+      line-height: 1.6;
+    }
+    .trust {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+    }
+    .trust li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: start;
+    }
+    .trust-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-top: 0.15rem;
+      color: var(--red);
+    }
+    .trust strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .trust span {
+      font-size: 0.98rem;
+      color: var(--muted-ink);
+      line-height: 1.5;
+    }
+
+    /* —— FOOTER —— */
+    .footer {
+      position: relative;
+      background: var(--navy-deep);
+      color: var(--white);
+      padding: clamp(3rem, 7vw, 4.5rem) var(--pad) 2rem;
+      overflow: hidden;
+    }
+    .stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(1px 1px at 8% 18%, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1px 1px at 22% 42%, rgba(255,255,255,0.55), transparent),
+        radial-gradient(1.5px 1.5px at 35% 12%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 48% 58%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 61% 28%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1.5px 1.5px at 74% 70%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 86% 22%, rgba(255,255,255,0.55), transparent),
+        radial-gradient(1px 1px at 93% 48%, rgba(255,255,255,0.65), transparent),
+        radial-gradient(1px 1px at 15% 78%, rgba(255,255,255,0.45), transparent),
+        radial-gradient(1.5px 1.5px at 55% 85%, rgba(255,255,255,0.75), transparent),
+        radial-gradient(1px 1px at 70% 10%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 40% 90%, rgba(255,255,255,0.4), transparent);
+      animation: twinkle 6s ease-in-out infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.55; }
+      to { opacity: 1; }
+    }
+    .footer-inner {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+    .footer-tagline {
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 3vw, 1.85rem);
+      margin-bottom: 2rem;
+      max-width: 22ch;
+      line-height: 1.3;
+    }
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem 1.75rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.78);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 860px) {
+      .steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 1.25rem;
+      }
+      .steps::before { display: none; }
+      .labs-inner { grid-template-columns: 1fr; }
+      .step p { max-width: none; }
+    }
+    @media (max-width: 520px) {
+      .steps { grid-template-columns: 1fr; }
+      .hero-nav .nav-link { display: none; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-bg { transform: none; }
+      .hero-nav, .hero-copy, .step { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <nav class="hero-nav" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="REVERE AI home">
+          <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="32" fill="#B31942"/>
+            <!-- motion lines / stripes -->
+            <g opacity="0.9" stroke="#F8F6F1" stroke-width="1.6" stroke-linecap="round">
+              <line x1="6" y1="22" x2="18" y2="20"/>
+              <line x1="5" y1="28" x2="16" y2="27"/>
+              <line x1="6" y1="34" x2="17" y2="34"/>
+              <line x1="7" y1="40" x2="16" y2="41"/>
+            </g>
+            <!-- horse + rider silhouette -->
+            <g fill="#F8F6F1">
+              <path d="M22 40c2-6 5-10 9-12 1.5-4 4-7 8-8 1.2 0 2.2.6 2.8 1.6l1.4 2.4c.4.7 1.2 1 2 1h3.2c1.2 0 2 .8 2 1.8v1.4c0 .7-.4 1.3-1 1.6l-2.2 1.1c-.5.2-.8.7-.8 1.2V36c0 1-.7 1.8-1.6 2l-2.6.5c-.8.2-1.4.8-1.5 1.6L37 44h-3l.4-3.2c.1-.6-.3-1.2-.9-1.3L30 39c-1.2-.2-2.2.5-2.6 1.6L26 44h-3l1.2-4c.3-.9 0-1.9-.8-2.4L22 40z"/>
+              <ellipse cx="24.5" cy="42.5" rx="2.2" ry="1.4"/>
+              <ellipse cx="40" cy="43" rx="2.2" ry="1.4"/>
+              <path d="M36 20.5c.2-1.4 1.2-2.4 2.4-2.6.8-.1 1.4.4 1.6 1.1l.3 1.2-2.2.8-2.1-.5z"/>
+              <circle cx="38.2" cy="17.2" r="1.1"/>
+            </g>
+          </svg>
+          <span class="wordmark">
+            Revere
+            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.8l2.6 6.4 6.9.6-5.2 4.5 1.6 6.7L12 16.6 6.1 20l1.6-6.7L2.5 8.8l6.9-.6L12 1.8z"/></svg>
+          </span>
+        </a>
+        <a class="nav-link" href="#labs">For foundation labs</a>
+      </nav>
+
+      <div class="hero-copy">
+        <h1>Making America Make Again.</h1>
+        <p class="hero-sub">We're building the world's largest contact dataset for physical AI — by putting American-supervised robots to work in our businesses.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="mailto:partner@riderevere.com?subject=Partnership%20inquiry">Partner with us</a>
+          <a class="btn btn-ghost" href="#labs">For foundation labs</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="stripe" aria-hidden="true"></div>
+
+  <section class="bridge" id="bridge" aria-labelledby="bridge-heading">
+    <div class="bridge-inner">
+      <p class="section-label">What we do</p>
+      <h2 id="bridge-heading">The bridge</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>Deploy on real jobs</h3>
+          <p>Robots supervised and operated by remote American employees.</p>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>Solve the business problem</h3>
+          <p>Commercial work first — value delivered before data is a product.</p>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Capture contact data</h3>
+          <p>Force, tactile, proprioception, and social context labs need.</p>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">4</div>
+          <h3>Automate fully</h3>
+          <p>Retire human supervision step by step as capability compounds.</p>
+        </li>
+      </ol>
+
+      <p class="bridge-line">We work the hardest environments — unstructured, occupied, unforgiving — because that's where the valuable data lives.</p>
+    </div>
+  </section>
+
+  <div class="stripe" aria-hidden="true"></div>
+
+  <aside class="quote-band" aria-label="White House AI summit quotation">
+    <div class="quote-inner">
+      <blockquote>
+        “From this day forward, it'll be a policy of the United States to do whatever it takes to lead the world in artificial intelligence.”
+      </blockquote>
+      <cite>— President Donald J. Trump <span style="font-weight:400;opacity:.8">· July 23, 2025 White House AI Summit</span></cite>
+      <p class="quote-kicker">Physical AI is the next front. The lab that trains on real American work wins it.</p>
+    </div>
+  </aside>
+
+  <div class="stripe" aria-hidden="true"></div>
+
+  <section class="labs" id="labs" aria-labelledby="labs-heading">
+    <div class="labs-inner">
+      <div>
+        <p class="section-label">For foundation labs</p>
+        <h2 id="labs-heading">The American contact dataset</h2>
+        <p class="labs-lead">Force, tactile, proprioception + social context — collected under paid commercial contracts in American businesses.</p>
+        <a class="btn btn-navy" href="mailto:data@riderevere.com?subject=Data%20partnership%20inquiry">Talk data partnerships</a>
+      </div>
+      <ul class="trust">
+        <li>
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 3v6c0 5.2-3.4 9.8-8 11-4.6-1.2-8-5.8-8-11V5l8-3z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 12l2.5 2.5L16 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <strong>Zero China exposure</strong>
+            <span>No foreign data pools, no export-control entanglement, clean chain of custody.</span>
+          </div>
+        </li>
+        <li>
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9S14.5 18.2 12 21c-2.5-2.8-3.8-5.8-3.8-9S9.5 5.8 12 3z" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div>
+            <strong>Collected in American environments</strong>
+            <span>Real stores, real customers, U.S. jurisdiction end to end.</span>
+          </div>
+        </li>
+        <li>
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <div>
+            <strong>Licensed, not scraped</strong>
+            <span>Every hour gathered under contract with the business being served.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="stripe" aria-hidden="true"></div>
+
+  <footer class="footer">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <p class="footer-tagline">American robots, trained in American stores.</p>
+      <div class="footer-row">
+        <div class="footer-links">
+          <a href="mailto:hello@riderevere.com">Contact</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a>
+        </div>
+        <p class="footer-copy">© Revere AI — New York City</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
