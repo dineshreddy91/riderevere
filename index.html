@@ -71,38 +71,26 @@
     .wordmark {
       font-family: var(--serif);
       font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.28em;
+      font-size: 1.1rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      font-variant: small-caps;
-      position: relative;
-      display: inline-block;
-      padding-right: 0.15em;
+      color: var(--white);
     }
-    .wordmark .star {
-      position: absolute;
-      top: -0.35em;
-      left: 2.55em;
-      width: 0.55em;
-      height: 0.55em;
-      color: var(--red);
+    .brand-star {
+      width: 1.05rem;
+      height: 1.05rem;
+      color: var(--white);
+      flex-shrink: 0;
       animation: star-pulse 3.2s ease-in-out infinite;
     }
     @keyframes star-pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.75; transform: scale(1.08); }
     }
-
-    /* Logo mark */
-    .logo-mark {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-    }
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
 
     /* Buttons */
@@ -158,7 +146,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(105deg, rgba(6, 31, 63, 0.92) 0%, rgba(6, 31, 63, 0.72) 42%, rgba(10, 49, 97, 0.45) 70%, rgba(10, 49, 97, 0.55) 100%),
+        linear-gradient(105deg, rgba(6, 31, 63, 0.88) 0%, rgba(6, 31, 63, 0.58) 40%, rgba(10, 49, 97, 0.28) 68%, rgba(10, 49, 97, 0.4) 100%),
         url("hero-aisle.jpg") center / cover no-repeat;
       transform: scale(1.04);
       animation: hero-ken 28s ease-in-out infinite alternate;
@@ -182,23 +170,9 @@
     .hero-nav {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       margin-bottom: auto;
       opacity: 0;
       animation: rise 0.9s ease 0.1s forwards;
-    }
-    .hero-nav a.nav-link {
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--muted);
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .hero-nav a.nav-link:hover {
-      color: var(--white);
-      border-color: rgba(255, 255, 255, 0.4);
     }
     .hero-copy {
       max-width: 38rem;
@@ -259,7 +233,12 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
       position: relative;
-      margin-bottom: 2.75rem;
+      margin: 0 0 2.75rem;
+      padding: 0;
+      list-style: none;
+    }
+    .steps > li {
+      list-style: none;
     }
     .steps::before {
       content: "";
@@ -463,27 +442,38 @@
       max-width: 22ch;
       line-height: 1.3;
     }
+    .usa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+      padding: 0.65rem 1.25rem;
+      border: 1px solid rgba(120, 160, 210, 0.55);
+      border-radius: 999px;
+      background: rgba(10, 49, 97, 0.35);
+      color: var(--white);
+      font-size: clamp(0.68rem, 1.6vw, 0.78rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .usa-badge .flag {
+      width: 1.35rem;
+      height: 0.9rem;
+      flex-shrink: 0;
+      border-radius: 1px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+    }
     .footer-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 1.25rem;
       padding-top: 1.75rem;
       border-top: 1px solid rgba(255, 255, 255, 0.15);
     }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem 1.75rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.78);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
     .footer-copy {
       font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.5);
@@ -500,8 +490,8 @@
     }
     @media (max-width: 520px) {
       .steps { grid-template-columns: 1fr; }
-      .hero-nav .nav-link { display: none; }
       .footer-row { flex-direction: column; align-items: flex-start; }
+      .usa-badge { letter-spacing: 0.04em; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -522,30 +512,9 @@
     <div class="hero-inner">
       <nav class="hero-nav" aria-label="Primary">
         <a class="brand" href="#top" aria-label="REVERE AI home">
-          <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
-            <circle cx="32" cy="32" r="32" fill="#B31942"/>
-            <!-- motion lines / stripes -->
-            <g opacity="0.9" stroke="#F8F6F1" stroke-width="1.6" stroke-linecap="round">
-              <line x1="6" y1="22" x2="18" y2="20"/>
-              <line x1="5" y1="28" x2="16" y2="27"/>
-              <line x1="6" y1="34" x2="17" y2="34"/>
-              <line x1="7" y1="40" x2="16" y2="41"/>
-            </g>
-            <!-- horse + rider silhouette -->
-            <g fill="#F8F6F1">
-              <path d="M22 40c2-6 5-10 9-12 1.5-4 4-7 8-8 1.2 0 2.2.6 2.8 1.6l1.4 2.4c.4.7 1.2 1 2 1h3.2c1.2 0 2 .8 2 1.8v1.4c0 .7-.4 1.3-1 1.6l-2.2 1.1c-.5.2-.8.7-.8 1.2V36c0 1-.7 1.8-1.6 2l-2.6.5c-.8.2-1.4.8-1.5 1.6L37 44h-3l.4-3.2c.1-.6-.3-1.2-.9-1.3L30 39c-1.2-.2-2.2.5-2.6 1.6L26 44h-3l1.2-4c.3-.9 0-1.9-.8-2.4L22 40z"/>
-              <ellipse cx="24.5" cy="42.5" rx="2.2" ry="1.4"/>
-              <ellipse cx="40" cy="43" rx="2.2" ry="1.4"/>
-              <path d="M36 20.5c.2-1.4 1.2-2.4 2.4-2.6.8-.1 1.4.4 1.6 1.1l.3 1.2-2.2.8-2.1-.5z"/>
-              <circle cx="38.2" cy="17.2" r="1.1"/>
-            </g>
-          </svg>
-          <span class="wordmark">
-            Revere
-            <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.8l2.6 6.4 6.9.6-5.2 4.5 1.6 6.7L12 16.6 6.1 20l1.6-6.7L2.5 8.8l6.9-.6L12 1.8z"/></svg>
-          </span>
+          <svg class="brand-star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.8l2.6 6.4 6.9.6-5.2 4.5 1.6 6.7L12 16.6 6.1 20l1.6-6.7L2.5 8.8l6.9-.6L12 1.8z"/></svg>
+          <span class="wordmark">Revere AI</span>
         </a>
-        <a class="nav-link" href="#problem">The problem</a>
       </nav>
 
       <div class="hero-copy">
@@ -637,13 +606,20 @@
     <div class="stars" aria-hidden="true"></div>
     <div class="footer-inner">
       <p class="footer-tagline">American robots, trained in American stores.</p>
+      <div class="usa-badge" role="note">
+        <svg class="flag" viewBox="0 0 19 10" aria-hidden="true">
+          <rect width="19" height="10" fill="#B31942"/>
+          <rect y="1" width="19" height="1" fill="#fff"/>
+          <rect y="3" width="19" height="1" fill="#fff"/>
+          <rect y="5" width="19" height="1" fill="#fff"/>
+          <rect y="7" width="19" height="1" fill="#fff"/>
+          <rect y="9" width="19" height="1" fill="#fff"/>
+          <rect width="8" height="5.5" fill="#0A3161"/>
+        </svg>
+        <span>Designed, assembled, trained &amp; supervised in the USA</span>
+      </div>
       <div class="footer-row">
-        <div class="footer-links">
-          <a href="mailto:hello@riderevere.com">Contact</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a>
-        </div>
-        <p class="footer-copy">© Revere AI — New York City</p>
+        <p class="footer-copy">© Revere AI</p>
       </div>
     </div>
   </footer>
