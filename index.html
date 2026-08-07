@@ -146,10 +146,12 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(105deg, rgba(6, 31, 63, 0.88) 0%, rgba(6, 31, 63, 0.58) 40%, rgba(10, 49, 97, 0.28) 68%, rgba(10, 49, 97, 0.4) 100%),
+        linear-gradient(105deg, rgba(4, 20, 42, 0.94) 0%, rgba(6, 31, 63, 0.82) 38%, rgba(6, 31, 63, 0.68) 65%, rgba(6, 31, 63, 0.78) 100%),
+        linear-gradient(180deg, rgba(4, 20, 42, 0.35) 0%, transparent 40%, rgba(4, 20, 42, 0.45) 100%),
         url("hero-aisle.jpg") center / cover no-repeat;
       transform: scale(1.04);
       animation: hero-ken 28s ease-in-out infinite alternate;
+      filter: brightness(0.72) saturate(0.85);
     }
     @keyframes hero-ken {
       from { transform: scale(1.04) translate3d(0, 0, 0); }
