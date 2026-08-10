@@ -356,6 +356,166 @@
       line-height: 1.5;
     }
 
+
+    /* —— BOTS / STATS —— */
+    .section-block {
+      background: var(--cream);
+      padding: clamp(3.5rem, 9vw, 6.5rem) var(--pad);
+    }
+    .section-block.alt { background: var(--white); }
+    .section-block-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+    .section-block h2 {
+      font-size: clamp(1.85rem, 4vw, 2.65rem);
+      color: var(--navy);
+      margin-bottom: 1.15rem;
+      max-width: 22ch;
+    }
+    .lead {
+      font-size: 1.15rem;
+      color: var(--muted-ink);
+      margin-bottom: 2.25rem;
+      max-width: 42rem;
+      line-height: 1.65;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.25rem, 3vw, 2rem);
+      margin-bottom: 2.5rem;
+    }
+    .stat {
+      padding-top: 1.15rem;
+      border-top: 2px solid var(--red);
+    }
+    .stat strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .stat span {
+      font-size: 0.98rem;
+      color: var(--muted-ink);
+      line-height: 1.5;
+    }
+    .pull-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      color: var(--navy);
+      max-width: 42rem;
+      line-height: 1.55;
+      border-left: 3px solid var(--red);
+      padding-left: 1.25rem;
+    }
+    .pull-quote cite {
+      display: block;
+      margin-top: 0.85rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted-ink);
+    }
+    .bots-band {
+      background: var(--navy);
+      color: var(--white);
+      padding: clamp(2.75rem, 7vw, 4rem) var(--pad);
+      text-align: center;
+    }
+    .bots-band-inner { width: min(720px, 100%); margin: 0 auto; }
+    .bots-band h2 {
+      font-size: clamp(1.5rem, 3.2vw, 2rem);
+      color: var(--white);
+      margin-bottom: 0.9rem;
+      text-wrap: balance;
+    }
+    .bots-band p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(2rem, 5vw, 3.5rem);
+      align-items: start;
+    }
+    .price-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .price-card {
+      padding: 1.5rem 1.35rem;
+      background: var(--white);
+      border: 1px solid rgba(10, 49, 97, 0.12);
+    }
+    .section-block.alt .price-card { background: var(--cream); }
+    .price-card.accent {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .price-card .who {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.75rem;
+    }
+    .price-card .amt {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .price-card .unit {
+      font-size: 0.95rem;
+      opacity: 0.75;
+      margin-bottom: 1rem;
+    }
+    .price-card .order {
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .bullets {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+    .bullets li {
+      padding-left: 1.1rem;
+      border-left: 2px solid var(--red);
+    }
+    .bullets strong {
+      display: block;
+      font-family: var(--serif);
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .bullets span { color: var(--muted-ink); font-size: 0.98rem; }
+    .product-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      margin-top: 2rem;
+    }
+    .bridge h2 { margin-bottom: 1.15rem; }
+    .bridge .lead { margin-bottom: 2.25rem; }
+
+
+    .bridge[style*="white"] .step-num,
+    #approach .step-num { box-shadow: 0 0 0 6px var(--white); }
+
     /* —— PROBLEM —— */
     .problem {
       background: var(--cream);
@@ -451,9 +611,16 @@
     .footer-tagline {
       font-family: var(--serif);
       font-size: clamp(1.35rem, 3vw, 1.85rem);
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       max-width: 22ch;
       line-height: 1.3;
+    }
+    .footer-blurb {
+      color: rgba(255,255,255,0.72);
+      max-width: 34rem;
+      margin-bottom: 1.75rem;
+      font-size: 1.05rem;
+      line-height: 1.55;
     }
     .usa-badge {
       display: inline-flex;
@@ -487,6 +654,7 @@
       gap: 1.25rem;
       padding-top: 1.75rem;
       border-top: 1px solid rgba(255, 255, 255, 0.15);
+      margin-top: 2rem;
     }
     .footer-copy {
       font-size: 0.85rem;
@@ -499,13 +667,15 @@
         gap: 2rem 1.25rem;
       }
       .step:nth-child(2)::after { display: none; }
-      .pain { grid-template-columns: 1fr; }
+      .pain, .stat-grid, .offer-grid { grid-template-columns: 1fr; }
+      .price-compare { grid-template-columns: 1fr 1fr; }
       .step p { max-width: none; }
       .usa-badge { white-space: normal; max-width: 16rem; letter-spacing: 0.04em; }
     }
     @media (max-width: 520px) {
       .steps { grid-template-columns: 1fr; }
       .step:not(:last-child)::after { display: none; }
+      .price-compare { grid-template-columns: 1fr; }
       .footer-row { flex-direction: column; align-items: flex-start; }
       .usa-badge { max-width: none; }
     }
@@ -547,10 +717,10 @@
 
       <div class="hero-copy">
         <h1>Making America Make Again.</h1>
-        <p class="hero-sub">We're building foundation models for physical AGI — by automating retail fulfillment with American-supervised robots in American stores.</p>
+        <p class="hero-sub">We're building foundation models for physical AGI by automating retail fulfillment with American-supervised robots in American stores.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="mailto:partner@riderevere.com?subject=Partnership%20inquiry">Partner with us</a>
-          <a class="btn btn-ghost" href="#approach">How we get there</a>
+          <a class="btn btn-ghost" href="#revere-bots">Revere Bots</a>
         </div>
       </div>
     </div>
@@ -558,15 +728,172 @@
 
   <div class="stripe" aria-hidden="true"></div>
 
+  <aside class="quote-band" aria-label="White House AI summit quotation">
+    <div class="quote-inner">
+      <blockquote>
+        “From this day forward, it'll be a policy of the United States to do whatever it takes to lead the world in artificial intelligence.”
+      </blockquote>
+      <cite>President of the United States <span style="font-weight:400;opacity:.8">· July 23, 2025 White House AI Summit</span></cite>
+      <p class="quote-kicker">Physical AI is the next front. It will be won on American store floors.</p>
+    </div>
+  </aside>
+
+  <div class="stripe" aria-hidden="true"></div>
+
+  <section class="section-block" id="revere-bots" aria-labelledby="bots-heading">
+    <div class="section-block-inner">
+      <p class="section-label">Revere Bots</p>
+      <h2 id="bots-heading">Bridging the gap between AI and your business.</h2>
+      <p class="lead">Human-supervised robots pack online grocery orders in your existing stores for under $2.8 per order, all in. Pay per order. Cancel any month.</p>
+    </div>
+  </section>
+
+  <section class="section-block alt" id="stakes" aria-labelledby="stakes-heading">
+    <div class="section-block-inner">
+      <p class="section-label">The stakes</p>
+      <h2 id="stakes-heading">Online order economics are broken</h2>
+      <p class="lead">The store that fixes them first wins. Picking labor is the problem: every hand-packed order carries $8-12 of labor on a business that nets ~2.1%.</p>
+      <div class="stat-grid">
+        <div class="stat">
+          <strong>$8-12</strong>
+          <span>Labor per hand-packed online order, roughly 10% of the ticket.</span>
+        </div>
+        <div class="stat">
+          <strong>~48%</strong>
+          <span>Annual picker turnover. Wages are up ~20% in five years.</span>
+        </div>
+        <div class="stat">
+          <strong>75% cheaper</strong>
+          <span>Revere Bots packs online orders under $2.8 all-in, in your existing footprint.</span>
+        </div>
+      </div>
+      <blockquote class="pull-quote">
+        “Manual store-based fulfilment tends to hit a ceiling at around 12-15% online penetration.”
+        <cite>McKinsey &amp; Company, The State of Grocery North America 2026</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <div class="stripe" aria-hidden="true"></div>
+
+  <section class="section-block" id="trend" aria-labelledby="trend-heading">
+    <div class="section-block-inner">
+      <p class="section-label">The trend</p>
+      <h2 id="trend-heading">Online became one dollar in five of grocery</h2>
+      <div class="stat-grid" style="margin-bottom: 0;">
+        <div class="stat">
+          <strong>+20% vs &lt;2%</strong>
+          <span>Online vs. store growth across six straight quarters.</span>
+        </div>
+        <div class="stat">
+          <strong>~75%</strong>
+          <span>Of 2025 grocery dollar growth was e-commerce.</span>
+        </div>
+        <div class="stat">
+          <strong>27-37 min</strong>
+          <span>Staff time per online order, up to 125% more labor per basket.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="bots-band">
+    <div class="bots-band-inner">
+      <h2>No need to operate dark stores &amp; buy everything twice.</h2>
+      <p>With Revere Bots, fulfillment stays in the store at less than half the cost, day or night, so you can offer 24/7, 30-minute digital order guarantees.</p>
+    </div>
+  </aside>
+
+  <section class="section-block alt" id="offer" aria-labelledby="offer-heading">
+    <div class="section-block-inner">
+      <p class="section-label">The offer</p>
+      <h2 id="offer-heading">More orders per labor hour</h2>
+      <p class="lead">Our economics let you expand the market for digital orders without CapEx, and with the right to cancel any month.</p>
+      <div class="offer-grid">
+        <div class="price-compare">
+          <div class="price-card">
+            <p class="who">Typical metro staff</p>
+            <p class="amt">~60¢</p>
+            <p class="unit">per item</p>
+            <p class="order">~$12 on a 20-item order<br />$25/hr · ~60 items/hr</p>
+          </div>
+          <div class="price-card accent">
+            <p class="who">Revere Bots</p>
+            <p class="amt">15¢</p>
+            <p class="unit">per item</p>
+            <p class="order">$3 on a 20-item order<br />Pay per order · no CapEx</p>
+          </div>
+        </div>
+        <ul class="bullets">
+          <li>
+            <strong>Reuse the store you already have</strong>
+            <span>No dark-store buildout. 30,000-140,000 SKUs stay where they are.</span>
+          </li>
+          <li>
+            <strong>American-supervised robots</strong>
+            <span>Remote U.S. operators supervise every pick while autonomy compounds.</span>
+          </li>
+          <li>
+            <strong>Ride the automation curve down</strong>
+            <span>Start on the night shift tonight. Cost falls as supervision retires.</span>
+          </li>
+          <li>
+            <strong>Price follows hours of operation</strong>
+            <span>As low as 6¢/item day+night; 25¢ nighttime only. We amortize the robot.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="product-actions">
+        <a class="btn btn-navy" href="https://www.reverebots.com/">Visit reverebots.com</a>
+        <a class="btn btn-primary" href="mailto:hello@reverebots.com?subject=Retail%20pilot%20inquiry">Talk to Revere Bots</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stripe" aria-hidden="true"></div>
+
+  <section class="bridge" id="bots-path" aria-labelledby="bots-path-heading">
+    <div class="bridge-inner">
+      <p class="section-label">How we get there</p>
+      <h2 id="bots-path-heading">Useful work today. Autonomy next.</h2>
+      <p class="lead">We deploy supervised robots into messy retail environments to solve fulfillment now, and train foundation models for physical AGI on the contact of real work.</p>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>Deploy on real jobs</h3>
+          <p>L2 robots in stores, supervised remotely by American operators.</p>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>Solve fulfillment</h3>
+          <p>Pack online orders cheaply tonight. Value before solo autonomy.</p>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Train on contact</h3>
+          <p>Every hour becomes force, tactile, proprioception, and social context.</p>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">4</div>
+          <h3>Climb L2 to L4</h3>
+          <p>Retire supervision step by step as capability compounds.</p>
+        </li>
+      </ol>
+      <p class="bridge-line">Retail is the most diverse environment for true scaling: contact and social diversity that labs and household stacks cannot buy.</p>
+    </div>
+  </section>
+
+  <div class="stripe" aria-hidden="true"></div>
+
   <section class="problem" id="problem" aria-labelledby="problem-heading">
     <div class="problem-inner">
       <p class="section-label">The problem</p>
       <h2 id="problem-heading">Retail fulfillment is still human work</h2>
-      <p class="problem-lead">Stores are unstructured, occupied, and unforgiving. Stocking, picking, and restocking demand contact with the world — force, touch, judgment in crowded aisles — that today's robots cannot yet do alone. Labor is scarce. The work does not wait.</p>
+      <p class="problem-lead">Stores are unstructured, occupied, and unforgiving. Stocking, picking, and restocking demand contact with the world: force, touch, judgment in crowded aisles that today's robots cannot yet do alone. Labor is scarce. The work does not wait.</p>
       <ul class="pain">
         <li>
           <strong>Unstructured aisles</strong>
-          <span>Every SKU, shelf, and shopper is different. There is no clean factory cell — only messy, living retail floors.</span>
+          <span>Every SKU, shelf, and shopper is different. There is no clean factory cell, only messy, living retail floors.</span>
         </li>
         <li>
           <strong>Contact is the bottleneck</strong>
@@ -577,30 +904,17 @@
           <span>Fulfillment demand grows; the workforce to meet it does not. Automation has to earn trust on the job, not in the lab.</span>
         </li>
       </ul>
-      <p class="thesis">Our hypothesis: the path to physical AGI runs through automating retail fulfillment — training foundation models on the contact of real American work.</p>
+      <p class="thesis">Our hypothesis: the path to physical AGI runs through automating retail fulfillment, training foundation models on the contact of real American work.</p>
       <a class="btn btn-navy" href="mailto:partner@riderevere.com?subject=Partnership%20inquiry">Partner with us</a>
     </div>
   </section>
 
   <div class="stripe" aria-hidden="true"></div>
 
-  <aside class="quote-band" aria-label="White House AI summit quotation">
-    <div class="quote-inner">
-      <blockquote>
-        “From this day forward, it'll be a policy of the United States to do whatever it takes to lead the world in artificial intelligence.”
-      </blockquote>
-      <cite>— President of the United States <span style="font-weight:400;opacity:.8">· July 23, 2025 White House AI Summit</span></cite>
-      <p class="quote-kicker">Physical AI is the next front. It will be won on American store floors.</p>
-    </div>
-  </aside>
-
-  <div class="stripe" aria-hidden="true"></div>
-
-  <section class="bridge" id="approach" aria-labelledby="approach-heading">
+  <section class="bridge" id="approach" aria-labelledby="approach-heading" style="background: var(--white);">
     <div class="bridge-inner">
       <p class="section-label">How we get there</p>
       <h2 id="approach-heading">Work first. Autonomy next.</h2>
-
       <ol class="steps">
         <li class="step">
           <div class="step-num" aria-hidden="true">1</div>
@@ -610,7 +924,7 @@
         <li class="step">
           <div class="step-num" aria-hidden="true">2</div>
           <h3>Solve fulfillment</h3>
-          <p>Deliver the business outcome — stocking, picking, restocking — before models are ready to fly solo.</p>
+          <p>Deliver the business outcome (stocking, picking, restocking) before models are ready to fly solo.</p>
         </li>
         <li class="step">
           <div class="step-num" aria-hidden="true">3</div>
@@ -623,8 +937,7 @@
           <p>Step by step, capability compounds until human oversight can step back.</p>
         </li>
       </ol>
-
-      <p class="bridge-line">We work the hardest environments — unstructured, occupied, unforgiving — because that's where physical AGI has to learn.</p>
+      <p class="bridge-line">We work the hardest environments, unstructured, occupied, unforgiving, because that's where physical AGI has to learn.</p>
     </div>
   </section>
 
@@ -634,6 +947,8 @@
     <div class="stars" aria-hidden="true"></div>
     <div class="footer-inner">
       <p class="footer-tagline">American robots, trained in American stores.</p>
+      <p class="footer-blurb">Start with the night shift today. Cut your cost per order tonight, and ride the automation curve down as autonomy rises. Pay per order. No CapEx. Cancel any month.</p>
+      <a class="btn btn-primary" href="mailto:hello@reverebots.com?subject=Night%20shift%20pilot">Talk to Revere Bots</a>
       <div class="footer-row">
         <p class="footer-copy">© Revere AI</p>
       </div>
